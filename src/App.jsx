@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import footballArticles from './data/footballArticles'
+import 'font-awesome/css/font-awesome.min.css';
 
 function App() {
   const [newArticle, setNewArticle] = useState('')
@@ -19,6 +20,10 @@ function App() {
     setNewArticle('')
   }
 
+  function handleDeleteArticle(id) {
+    setArticles(articles.filter(article => article.id !== id))
+  }
+
   return (
     <>
       <h1 className='d-flex justify-content-center my-3'>Articles list</h1>
@@ -28,7 +33,13 @@ function App() {
           <div className="card-body">
             {
               articles.map(article => (
-                <h5 key={`article - ${article.id}`} className='display'>{article.title}</h5>
+                <div className='d-flex align-items-center justify-content-between'>
+                  <h5 key={`article - ${article.id}`} className='display'>{article.title}</h5>
+                  <i
+                    className="fa fa-trash"
+                    onClick={() => handleDeleteArticle(article.id)}
+                  />
+                </div>
               ))
             }
           </div>
