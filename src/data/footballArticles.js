@@ -1,4 +1,4 @@
-const articles = [
+const footballArticles = [
     {
         id: 1,
         title: "Le migliori tecniche di dribbling nel calcio"
@@ -21,4 +21,4 @@ const articles = [
     }
 ];
 
-export default articles
+export default footballArticles
