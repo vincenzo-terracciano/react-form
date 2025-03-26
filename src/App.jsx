@@ -8,9 +8,15 @@ function App() {
   function handleFormSubmit(e) {
     e.preventDefault()
 
-    setArticles([...articles, newArticle])
+    const newArticleObj = {
+      id: articles.length + 1,
+      title: newArticle
+    }
+
+    setArticles([...articles, newArticleObj])
     console.log(articles, newArticle);
 
+    setNewArticle('')
   }
 
   return (
